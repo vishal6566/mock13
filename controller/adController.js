@@ -26,4 +26,11 @@ async(req,res)=>{
 }
 )
 
-module.exports=postAd
+const getAd=asyncHandler(
+    async(req,res)=>{
+        const ads=await Ad.find()
+        res.status(200).send(ads)
+    }
+)
+
+module.exports={postAd,getAd}
